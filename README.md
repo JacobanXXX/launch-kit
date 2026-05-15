@@ -9,15 +9,40 @@
 Claude Code로 사이트 만들고 출시 직전 깎이는 1주, 한 번에 정리.<br>
 한국 PIPA·전자상거래법 호환 약관 + 모바일 햄버거 + SEO + Analytics + … 다 포함.
 
+🇰🇷 한국어 (현재) · [🇺🇸 English](README.en.md)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Made with Claude Code](https://img.shields.io/badge/Made_with-Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white)](https://claude.ai/code)
 [![Korea PIPA](https://img.shields.io/badge/Korea_PIPA-Compliant-0071e3?style=flat-square)](legal/)
 [![Stars](https://img.shields.io/github/stars/JacobanXXX/launch-kit?style=flat-square&logo=github)](https://github.com/JacobanXXX/launch-kit/stargazers)
+[![Forks](https://img.shields.io/github/forks/JacobanXXX/launch-kit?style=flat-square&logo=github)](https://github.com/JacobanXXX/launch-kit/network/members)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-22863a?style=flat-square)](CONTRIBUTING.md)
+[![Code of Conduct](https://img.shields.io/badge/Contributor_Covenant-2.1-fa75a8?style=flat-square)](CODE_OF_CONDUCT.md)
 
-[**🚀 Quick Start**](#-quick-start) · [**📋 Checklist**](#-12-item-pre-launch-checklist) · [**💎 What's Inside**](#-whats-inside) · [**🤔 FAQ**](#-faq)
+[**🚀 Quick Start**](#-quick-start) · [**📋 Checklist**](#-12-item-pre-launch-checklist) · [**💎 What's Inside**](#-whats-inside) · [**🤔 FAQ**](#-faq) · [**🤝 Contribute**](CONTRIBUTING.md)
 
 </div>
+
+---
+
+## 👥 Built for these vibe coders
+
+<table>
+<tr>
+<td width="33%" align="center">
+  <h3>🛠 1인 인디 메이커</h3>
+  <p>Cursor·Claude Code로 혼자 사이트·SaaS 만드는 분.<br>출시 직전 매번 같은 함정 12개에 깎임.</p>
+</td>
+<td width="33%" align="center">
+  <h3>🇰🇷 한국 SaaS 창업자</h3>
+  <p>전자상거래법·PIPA 약관 0에서 작성하기 막막.<br>변호사 50만원 견적 부담.</p>
+</td>
+<td width="33%" align="center">
+  <h3>⚡ 주말 해커</h3>
+  <p>금요일 시작 → 일요일 출시 목표.<br>UX·SEO·Analytics 학습 시간 X.</p>
+</td>
+</tr>
+</table>
 
 ---
 
@@ -38,6 +63,46 @@ verbiolabs.com 만들면서 이거 5번 겪었습니다. 매번 같은 함정에
 이거 한 항목씩 검색·해결하면 1주 깎입니다. 한 곳에 정리.
 
 이 repo는 **다음 인디 메이커가 같은 시간 안 깎이게** 만들었습니다.
+
+---
+
+## 🗂  Architecture
+
+```
+launch-kit/
+├── 📋 README.md                   ← you are here
+├── ✅ checklist.md                ← 12-item pre-launch checklist
+├── 🤖 claude.md                   ← Universal AI coding rules
+├── 📜 LICENSE                     ← MIT
+│
+├── 🏛️  legal/                     ← 한국 PIPA·전자상거래법 호환
+│   ├── privacy.html.template
+│   ├── terms.html.template
+│   └── refund.html.template
+│
+├── 🔍  seo/                       ← 검색 노출 풀세트
+│   ├── sitemap.xml.template
+│   ├── robots.txt
+│   ├── jsonld-organization.json
+│   └── google-search-console.md
+│
+├── 📊  analytics/                 ← Microsoft Clarity (무료, 무제한)
+│   └── clarity.html
+│
+├── 🎨  components/                ← UI/UX copy-paste 코드
+│   ├── mobile-hamburger.html
+│   ├── 404.html
+│   ├── app-store-badge.html
+│   ├── a11y.css
+│   └── og-image-generator.py
+│
+├── 📣  threads-posts.md           ← 마케팅 카피 8종 (Threads 최적화)
+├── 🤝  CONTRIBUTING.md            ← PR 환영 가이드
+├── 🛡️  SECURITY.md                ← 취약점 신고
+├── 💛  CODE_OF_CONDUCT.md         ← Contributor Covenant 2.1
+├── 📝  CHANGELOG.md
+└── 🏗️  .github/                   ← Issue·PR 템플릿, Actions
+```
 
 ---
 
@@ -261,6 +326,14 @@ PR 환영 → [CONTRIBUTING.md](CONTRIBUTING.md)
 - 🌐 [verbiolabs.com](https://verbiolabs.com) — AI for human language. 부산 기반 1인 SaaS.
 
 본인 사이트도 여기에! → README에 한 줄 추가하는 PR 환영.
+
+---
+
+## 📈 Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=JacobanXXX/launch-kit&type=Date)](https://star-history.com/#JacobanXXX/launch-kit&Date)
+
+⭐ Star로 momentum 만들어주세요. 다른 인디 메이커들이 발견하는 데 큰 도움이 됩니다.
 
 ---
 

@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 일반 토론
+    url: https://github.com/JacobanXXX/launch-kit/discussions
+    about: 사용 후기, 아이디어, 질문 등 자유 토론
+  - name: 🌐 verbiolabs.com
+    url: https://verbiolabs.com
+    about: 만든 사람의 다른 프로젝트 보기
+  - name: 🧵 Threads
+    url: https://threads.net
+    about: DM·피드백 환영

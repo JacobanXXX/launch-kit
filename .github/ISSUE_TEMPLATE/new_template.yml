@@ -1,0 +1,59 @@
+name: ✨ Add New Template
+description: launch 직전에 마주친 함정 + 해결책 추가
+title: "[New] "
+labels: ["enhancement", "new-template"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        본인이 SaaS 출시 직전에 마주친 함정 공유 환영! 🎉
+        다른 인디 메이커들이 같은 시간 안 깎이게.
+
+  - type: input
+    id: trap-name
+    attributes:
+      label: 이 함정 이름
+      placeholder: 예) 카카오톡 인앱 브라우저에서 폰트 깨짐
+    validations:
+      required: true
+
+  - type: textarea
+    id: trap-description
+    attributes:
+      label: 어떤 상황이에요?
+      placeholder: |
+        - 언제 발견했는지
+        - 어떻게 발현되는지
+        - 영향이 얼마나 큰지
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 해결 방법 (코드 있으면 첨부)
+      render: html
+      placeholder: |
+        ```css
+        /* 본인이 검증한 해결 코드 */
+        ```
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 어느 카테고리에 들어가야 할까요?
+      options:
+        - Legal (법령·약관)
+        - SEO (검색 노출)
+        - Analytics (분석)
+        - Components (UI/UX)
+        - AI Workflow (claude.md 류)
+        - 새 카테고리 (아래에 제안)
+
+  - type: input
+    id: contributor
+    attributes:
+      label: 본인 GitHub / Twitter handle (선택)
+      placeholder: 예) @verbiolabs — README의 contributor 섹션에 추가됩니다

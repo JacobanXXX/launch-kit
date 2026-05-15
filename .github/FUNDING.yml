@@ -1,0 +1,8 @@
+# Launch Kit funding options — 본인 채널 있으면 추가하세요
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+# github: [JacobanXXX]               # GitHub Sponsors (가입 필요)
+# patreon: verbiolabs                # Patreon
+# ko_fi: verbiolabs                  # Ko-fi
+# buy_me_a_coffee: verbiolabs        # Buy Me a Coffee
+custom: ['https://verbiolabs.com']   # 본인 사이트 직접 링크

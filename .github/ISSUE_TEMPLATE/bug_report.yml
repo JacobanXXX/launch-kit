@@ -1,0 +1,58 @@
+name: 🐛 Bug Report
+description: 템플릿이 깨지거나 코드가 작동하지 않을 때
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Launch Kit 사용해주셔서 감사합니다 🙏
+        문제를 정확히 알려주시면 빠르게 수정할게요.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: 어느 컴포넌트인가요?
+      options:
+        - Legal templates (privacy/terms/refund)
+        - Mobile hamburger menu
+        - 404 page
+        - App Store / Google Play badge
+        - OG image generator
+        - Microsoft Clarity setup
+        - SEO files (sitemap, robots, JSON-LD)
+        - claude.md template
+        - 기타 (아래에 적어주세요)
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 무슨 일이 있었나요?
+      placeholder: 예) 모바일 햄버거 메뉴 클릭해도 드로어가 안 뜸
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 재현 방법
+      placeholder: |
+        1. mobile-hamburger.html 다운로드
+        2. 브라우저에서 열기
+        3. 햄버거 클릭
+        4. ...
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 브라우저 / OS
+      placeholder: 예) Chrome 130 / macOS 14
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: 스크린샷 (있다면)

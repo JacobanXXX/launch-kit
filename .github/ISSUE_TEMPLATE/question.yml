@@ -1,0 +1,26 @@
+name: ❓ Question
+description: 사용 중 궁금한 점
+title: "[Q] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        먼저 [README FAQ](https://github.com/JacobanXXX/launch-kit#-faq)와
+        [checklist.md](https://github.com/JacobanXXX/launch-kit/blob/main/checklist.md) 확인해보셨나요?
+        거기에 없는 질문이라면 아래에 자유롭게 적어주세요.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: 질문
+      placeholder: |
+        예) Next.js 프로젝트에서 mobile-hamburger.html 어떻게 React 컴포넌트로 변환하나요?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 현재 상황 (스택, 진행 단계 등)
+      placeholder: 예) Next.js 14 App Router, 출시 전 마지막 단계
