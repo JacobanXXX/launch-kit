@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — 본인 도메인·페이지 목록으로 치환하세요.
+  Google Search Console에 제출 → 색인 가속.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://{{DOMAIN}}/</loc>
+    <lastmod>{{LAST_MODIFIED_DATE}}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/privacy.html</loc>
+    <lastmod>{{LAST_MODIFIED_DATE}}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/terms.html</loc>
+    <lastmod>{{LAST_MODIFIED_DATE}}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://{{DOMAIN}}/refund.html</loc>
+    <lastmod>{{LAST_MODIFIED_DATE}}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <!-- 페이지 추가 시 위 패턴대로 -->
+</urlset>

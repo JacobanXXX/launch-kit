@@ -1,0 +1,21 @@
+<!--
+  Microsoft Clarity — heatmap + 세션 녹화 (무료, 무제한)
+
+  사용법:
+  1. https://clarity.microsoft.com 가입
+  2. + New project → 이름·도메인 입력
+  3. Settings > Setup > 프로젝트 ID 받기 (예: "abcdefghij")
+  4. 아래 코드의 {{CLARITY_PROJECT_ID}} 부분을 그 ID로 치환
+  5. 모든 HTML 페이지의 <head> 안 (가능한 마지막에) 붙여넣기
+
+  ⚠️ 한국 PIPA 준수:
+     개인정보처리방침 "처리 위탁" 표에 다음 추가 필수:
+     | Microsoft Corporation (Microsoft Clarity) | 웹사이트 이용 행태 분석 |
+-->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "{{CLARITY_PROJECT_ID}}");
+</script>

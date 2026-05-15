@@ -1,0 +1,35 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://{{DOMAIN}}/#org",
+      "name": "{{COMPANY_BRAND}}",
+      "alternateName": "{{COMPANY_LEGAL_NAME_SHORT}}",
+      "url": "https://{{DOMAIN}}/",
+      "logo": "https://{{DOMAIN}}/favicon-512.png",
+      "image": "https://{{DOMAIN}}/og-image.png",
+      "description": "{{COMPANY_DESCRIPTION}}",
+      "email": "{{CONTACT_EMAIL}}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{STREET_ADDRESS}}",
+        "addressLocality": "{{LOCALITY}}",
+        "addressRegion": "{{REGION}}",
+        "addressCountry": "KR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "{{REPRESENTATIVE_NAME}}"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://{{DOMAIN}}/#website",
+      "url": "https://{{DOMAIN}}/",
+      "name": "{{COMPANY_BRAND}}",
+      "publisher": { "@id": "https://{{DOMAIN}}/#org" },
+      "inLanguage": ["ko-KR", "en-US"]
+    }
+  ]
+}
