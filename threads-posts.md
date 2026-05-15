@@ -1,212 +1,210 @@
 # Threads 포스트 카피 — Launch Kit 홍보용
 
-> 같은 자료, 다른 후크. 각각 1주일 간격으로 올려서 A/B 테스트.
-> 댓글에 GitHub 링크 / 본문은 후크에 집중.
+> 한국 바이브 코더 Threads에서 viral 잘 되는 패턴 분석 후 작성.
+> 자기 비하 + 구체적 숫자 + Pain → Relief 구조.
+> 같은 자료, 다른 후크. 1주 간격으로 A/B 테스트.
+
+**규칙:**
+- 본문 200-400자 이내
+- 본문에 GitHub 링크 X (알고리즘 페널티)
+- 첫 댓글에 `https://github.com/JacobanXXX/launch-kit`
+- 첨부 이미지: `social-preview.png` 또는 데모 GIF
 
 ---
 
-## 🎯 메인 포스트 (1순위)
-
-**Hook A — 함정 발견 톤**
+## 🥇 Hook A — 자기 비하 + 구체적 실패 (가장 친근)
 
 ```
-Claude Code로 SaaS 사이트 만드는데 30분이면 끝남.
+Claude Code로 사이트 만들고 "다 됐다" 한 게 5번.
+매번 출시 직전에 모바일 햄버거 메뉴 까먹음 ㅋㅋㅋ
 
-근데 출시 가능한 상태까지 가는 데는 또 1주.
+이번엔 안 까먹으려고 출시 전 체크할 12가지 정리해서 GitHub에 풀었어요.
+한국 PIPA·전자상거래법 호환 약관까지 다.
 
-까먹기 쉬운 12가지 정리해서 GitHub에 풀어둠.
-한국 PIPA·전자상거래법 호환 약관 템플릿,
-Microsoft Clarity 설치 (개인정보처리방침 disclosure 포함),
-모바일 햄버거 메뉴 코드,
-OG 이미지 자동 생성 스크립트까지 — 다 copy-paste.
-
-링크는 댓글 👇
+(다음 인디 메이커가 저처럼 새벽 3시에 panic 안 하길)
 ```
 
-**Hook B — 회고 톤**
-
-```
-verbiolabs.com 만들면서 출시 직전에 발견한 함정 12개.
-
-- 모바일 메뉴가 사라짐
-- 카톡 링크 썸네일이 텍스트만
-- 검색에 안 나옴
-- 누가 방문하는지 모름
-- 잘못된 URL 입력 시 Vercel 에러 페이지
-
-다음 인디 메이커가 같은 시간 안 깎이게 GitHub에 정리.
-한국 SaaS 만드는 사람한테 특히 유용 (전자상거래법 약관 템플릿 포함).
-```
-
-**Hook C — 직접적 가치 제안**
-
-```
-Claude Code 쓰는 인디 메이커한테 선물:
-
-✓ 한국 PIPA 호환 약관 3종 (privacy/terms/refund)
-✓ 모바일 햄버거 메뉴 (HTML+CSS+JS 통째로)
-✓ Microsoft Clarity 설치 가이드
-✓ Google Search Console 셋업
-✓ 1200×630 OG 이미지 자동 생성기
-✓ 브랜드 404 페이지
-✓ Favicon 풀세트 (SVG/ICO/PNG 6사이즈)
-✓ 접근성 기본기 (prefers-reduced-motion 등)
-✓ Apple/Google Play badge 정확한 SVG
-✓ Universal claude.md 템플릿
-
-한 곳에 묶었음. 떠가서 쓰세요.
-```
+**왜 viral 가능성 높나:** "ㅋㅋㅋ" 자기비하로 방어선 무너뜨림. "새벽 3시" 구체성. "panic" 같은 감정어로 공감.
 
 ---
 
-## 🔥 Follow-up 포스트 (2주차)
-
-**Hook D — 단일 항목 deep dive**
+## 🥈 Hook B — Contrarian + 직접 비용 (가장 강한 hook)
 
 ```
-모바일 햄버거 메뉴 코드 안 짜는 이유:
+"Claude Code 한 번에 사이트 출시" 영상들 — 다 거짓말이에요.
 
-1. 시간 없어서
-2. 어떻게 짜는지 매번 까먹음  
-3. 결국 출시 직전 panic하면서 stack overflow 검색
-
-verbiolabs.com에 쓴 햄버거 메뉴 코드 그대로 풀었음.
-HTML 30줄 + CSS 80줄 + JS 15줄. 끝.
-ESC 키 닫기, 클릭 시 자동 스크롤, body scroll lock 까지.
-
-[GitHub 링크]
-```
-
-**Hook E — claude.md 단독**
-
-```
-Claude Code 200번 커밋하면서 다듬은 claude.md 공개.
-
-핵심 룰:
-1. 최소 변경 원칙 (옆 코드 임의 리팩토링 금지)
-2. 큰 변경 전 plan 출력 후 confirm
-3. 새 dependency 함부로 추가 X
-4. 테스트 후에만 완료 표시
-5. Production 환경변수·결제·DB 변경 시 stop and ask
-
-각 룰마다 왜 필요한지 실패 사례 첨부했음.
-
-본인 .cursorrules / claude.md에 그대로 복붙 가능.
-```
-
-**Hook F — 한국 specific 가치**
-
-```
-한국에서 SaaS 출시하려면 약관 3종이 법적 필수:
-
-1. 개인정보처리방침 (개인정보보호법 30조)
-2. 이용약관 (전자상거래법)
-3. 환불·청약철회 정책 (전자상거래법 17조)
-
-변호사한테 부탁하면 50만원~. AI한테 시키면 또 검토 시간.
-
-verbiolabs.com 만들면서 작성한 3종 템플릿 GitHub에 풀었음.
-회사명·이메일·도메인만 바꾸면 됨. 사용 무료.
-
-⚠️ 강의·결제 본격 시작 전엔 변호사 검토 1번 추천 (그래도 0에서 시작하는 것보다 훨씬 빠름)
-```
-
----
-
-## 🍒 메타 컨텐츠 (3주차)
-
-**Hook G — 제작 후일담**
-
-```
-Claude Code로 verbiolabs.com 만들기 전과정:
-
-Day 1: HTML 1개로 시작 (Vercel 배포)
-Day 2: 모바일에서 메뉴가 사라진 것 발견 → 햄버거 추가
-Day 3: 카톡 공유했는데 썸네일이 텍스트만 → OG 이미지 추가
-Day 4: 약관 3종 작성 (한국 PIPA 호환)
-Day 5: 분석 도구 설치 (Microsoft Clarity)
-Day 6: SEO 풀세트 (sitemap, JSON-LD)
-Day 7: 출시 + Threads 공유
-
-각 day 마다 마주친 함정 + 해결 코드 GitHub에 정리했음.
-```
-
-**Hook H — 비용 공개**
-
-```
-Claude Code로 SaaS 사이트 만드는데 든 비용:
-
-- 도메인 (verbiolabs.com): 12,000원/년
-- Vercel hosting: 0원 (무료 티어)
-- Microsoft Clarity: 0원 (무료 무제한)
-- Google Search Console: 0원
-- 약관 작성: 0원 (Claude로 생성)
-- 디자인: 0원 (Claude + Instrument Serif 무료 폰트)
-
-총 12,000원/년 + Claude API 사용량 (~5만원).
-
-이 정도면 인디 메이커가 시도 못 할 이유 없음.
-사이트 만들면서 정리한 launch-kit GitHub에 풀어둠.
-```
-
-**Hook I — 반응형 후크 (질문 유도)**
-
-```
-질문:
-
-"Claude Code로 만들었는데 출시 직전에 가장 많이 빠뜨린 게 뭐였어요?"
-
-내 답: 모바일 햄버거 메뉴 (3번 다 까먹음 ㅋㅋㅋ)
-
-verbiolabs.com 만들면서 12개 함정 정리해서 GitHub에 풀었음.
-본인이 마주친 함정 추가해주실 분 PR 환영.
-```
-
-**Hook J — 권위 톤 (5년 경험 강조)**
-
-```
-5년간 SaaS 만들고, 200+ 엔지니어 가르치면서
-"인디 메이커가 매번 같은 함정에 빠지는구나" 생각.
-
-verbiolabs.com 만들면서 그 함정 12개 정리해서 GitHub에 공개:
-
-- 한국 PIPA·전자상거래법 호환 약관 3종
-- 모바일 햄버거 메뉴 (HTML+CSS+JS)
-- Microsoft Clarity 설치 + 개인정보 disclosure
-- OG 이미지 자동 생성 (Python)
-- Universal claude.md 템플릿
+진짜 출시까지 가려면:
+- 모바일 햄버거 메뉴 (없으면 사용자 1/3 이탈)
+- 약관 3종 (한국에서 결제 받으려면 법적 필수, 변호사 견적 50만원)
+- OG 이미지 (없으면 카톡 썸네일 텍스트만)
 - ...
 
-다음 인디 메이커가 시간 안 깎이길.
+각각 검색·해결에 1주 깎임. verbiolabs.com 만들면서 마주친 12가지 GitHub에 풀었음.
 ```
 
----
-
-## 📌 사용 가이드
-
-1. **Hook A 또는 B** 부터 시작 (가장 viral 가능성 높음)
-2. 1주 간격으로 follow-up (Hook D · E · F 순서)
-3. 댓글이 좋으면 메타 컨텐츠 (Hook G · H · I) 추가
-4. 권위 톤 (Hook J) 은 마지막에 — 너무 일찍 쓰면 자기자랑처럼 보임
-
-각 포스트마다:
-- 본문 200자 이내 (Threads 기본 한도 500자지만 짧을수록 reach)
-- 댓글에 GitHub 링크 (본문에 링크 넣으면 알고리즘 페널티)
-- 첫 댓글에 "구독·DM 환영" 식의 친근한 톤
+**왜 viral 가능성 높나:** "거짓말" 강한 단어로 attention 잡기. 변호사 50만원 같은 구체적 수치로 신뢰. 리스트 일부만 노출 → 댓글 유도.
 
 ---
 
-## 🖼 첨부 이미지 (있으면 reach +30%)
+## 🥉 Hook C — Direct callout + curiosity gap
 
-추천:
-- launch-kit GitHub repo 스크린샷 (12개 항목 표 보이는)
-- 또는 verbiolabs.com 모바일 햄버거 작동 영상 (10초 GIF)
-- 또는 OG 이미지 자체 (verbiolabs OG)
+```
+혹시 Claude Code로 사이트 만들고 "이거 다 한 거 맞나?" 싶었던 분.
+
+저도 5번 그랬어요. 이번엔 답을 정리해버림.
+
+12가지인데 처음 3개만 살짝 보면:
+1. 모바일에서 메뉴가 안 보여요 (햄버거 까먹음)
+2. 카톡 링크에 썸네일이 안 떠요 (OG 이미지 없음)
+3. 구글에서 검색하면 안 나와요 (sitemap 없음)
+
+나머지 9개 + 모든 코드 GitHub에 풀었음.
+```
+
+**왜 viral 가능성 높나:** 직접 호명으로 "내 얘기네" 느낌. List teaser로 "나머지 9개 뭐야?" 댓글 유도.
 
 ---
 
-## 마지막 팁
+## 🍒 Hook D — 비용 framing
 
-- Threads는 **저녁 8-10시 / 출퇴근 7-8시**에 reach 좋음
-- 한국 인디 씬 활성 계정 5명 정도 미리 mention 안 한 채로 그냥 follow → 알고리즘이 알아서 노출
-- 1주일 후 "이 포스트 반응 어떠셨나요?" follow-up post → engagement rate 높임
+```
+사이트 출시 전에 변호사 친구한테 약관 부탁한 적 있어요.
+견적 50만원. (그것도 디지털 콘텐츠 specific 빠진 일반 약관)
+
+Claude Code로 한국 PIPA·전자상거래법 호환 약관 3종 직접 만들었음.
+verbiolabs.com 출시하면서 검증한 거.
+
+GitHub에 풀어둠. 회사명·이메일만 바꾸면 끝.
+```
+
+**왜 viral 가능성 높나:** 50만원 절약이라는 명확한 가치. "친구한테 부탁했다 → 견적이 비쌌다" 친근한 narrative.
+
+---
+
+## 🍒 Hook E — 강한 short hook (시선 잡기용)
+
+```
+Claude Code로 사이트 출시할 때 99% 빠뜨리는 12가지.
+
+전부 copy-paste 가능한 코드.
+한국 SaaS 만드는 분 특히 — 약관 변호사비 절약됨.
+
+(GitHub 댓글에)
+```
+
+**왜 viral 가능성 높나:** 짧음 = 끝까지 읽힘. "99%" 같은 강한 통계.
+
+---
+
+## 🍒 Hook F — 시간 강조 (구체성)
+
+```
+이번주 깨달은 것:
+
+Claude Code로 사이트 "코드"는 30분이면 끝남.
+근데 진짜 "출시 가능한 상태"까지는 1주 깎임.
+
+차이는 빠뜨린 12가지. 한 곳에 정리했어요.
+```
+
+**왜 viral 가능성 높나:** 짧고 명확한 대조 (30분 vs 1주). 시간 차이가 강한 임팩트.
+
+---
+
+## 🍒 Hook G — 솔직한 후일담 (vibe coder 톤)
+
+```
+verbiolabs.com 출시 후일담:
+
+Day 1: HTML 1개로 시작 → "오 30분 만에 됐다"
+Day 2: 모바일에서 메뉴 사라진 거 발견 → 햄버거 추가
+Day 3: 카톡 공유 → 썸네일 텍스트만 → OG 추가
+Day 4: 약관 3종 작성 (한국 PIPA)
+Day 5: Analytics 설치
+Day 6: SEO 풀세트
+Day 7: 출시
+
+각 Day마다 마주친 함정 + 코드 GitHub에 다.
+```
+
+**왜 viral 가능성 높나:** Day-by-day 형식이 가독성 ↑. 구체적 process 보여주는 게 신뢰.
+
+---
+
+## 🍒 Hook H — 인사이트 + 권위
+
+```
+3년간 1인 SaaS 만들면서 매번 똑같은 12가지에 깎임.
+
+이번에 verbiolabs.com 출시하면서 드디어 정리.
+- 모바일 햄버거 (있으면 이탈률 -30%)
+- 한국 PIPA 약관 (없으면 결제 시작 못 함)
+- OG 이미지 (있으면 클릭률 +40%)
+- ...
+
+전부 GitHub에 코드까지. 다음 인디 메이커는 안 깎이게.
+```
+
+**왜 viral 가능성 높나:** "3년" 권위 + 구체적 수치 (-30%, +40%) 신뢰. "다음 인디 메이커" 따뜻한 마무리.
+
+---
+
+## 📅 1주 운영 순서
+
+| Day | Hook | 시간 | 비고 |
+|-----|------|------|------|
+| **Mon** | Hook A | 저녁 8-10시 | 가장 친근, 첫 진입에 최적 |
+| **Tue** | (조용) | — | 반응 모니터링 |
+| **Wed** | Hook D | 출근 7-8시 | 비용 절약 hook (실용적) |
+| **Thu** | (조용) | — | DM·댓글 응대 |
+| **Fri** | Hook B | 저녁 8-10시 | Contrarian (강한 hook), 주말 reach |
+| **Sat-Sun** | — | — | 휴식 |
+
+다음 주: 반응 좋은 hook 분석 후 Hook C, F, G로 follow-up.
+
+---
+
+## 🖼 첨부 이미지 추천
+
+각 포스트마다 시각 자료 1개 첨부 시 reach +30%:
+
+- **Hook A, F, G**: launch-kit/images/social-preview.png (배너)
+- **Hook B**: 12가지 표 스크린샷 (README의 checklist 부분)
+- **Hook C**: 모바일에서 햄버거 메뉴 GIF (가능하면)
+- **Hook D**: 약관 .template 파일 코드 일부 스크린샷
+
+---
+
+## 💬 댓글 응대 가이드
+
+들어오는 댓글 패턴별 응대:
+
+**"감사합니다"** → "도움 되셨다니 다행이에요! 본인 launch 시기에 추가로 마주친 함정 있으면 PR 환영 🙏"
+
+**"이거 어떻게 만드셨어요?"** → "Claude Code 100%. verbiolabs.com 자체 코드도 [github.com/JacobanXXX/verbio-labs](https://github.com/JacobanXXX/verbio-labs)에 공개되어 있어요"
+
+**"○○도 추가하면 좋을 것 같아요"** → "좋은 의견! Issue 또는 PR 올려주시면 확인할게요"
+
+**비판적 댓글** → 방어 X. "맞아요, 그 부분 더 다듬을게요" 후 본인 작업 계속
+
+---
+
+## 📈 24시간 후 확인할 KPI
+
+- ⭐ Stars: 5+ → 좋은 반응
+- 🍴 Forks: 1+ → 진짜 누가 쓰려고 함
+- 💬 댓글: 3+ → 토론 유도 성공
+- 📩 DM: 1+ → 친밀한 connection
+
+→ 잘 되면 다음 컨텐츠 (claude.md 단독 후크 D, E) 진행.
+
+---
+
+## 🚫 안 좋은 hook 예시 (피할 것)
+
+❌ "여러분 Claude Code 정말 좋죠?" — 누구나 아는 정보, 가치 X
+❌ "제가 이런 걸 만들었어요" — 자기 자랑 톤
+❌ "구독·좋아요 부탁드립니다" — 직접적 CTA는 viral X
+❌ "AI 시대의 인디 메이커 가이드" — 추상적, 클릭 욕구 X
+
+✅ 좋은 hook 공통점: **구체적 + 자기 경험 + 즉시 도움**
