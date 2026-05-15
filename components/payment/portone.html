@@ -1,0 +1,100 @@
+<!--
+  포트원 (PortOne, 구 아임포트) — V2 SDK 통합 예시
+  공식 문서: https://developers.portone.io/docs/ko/v2/integration/start
+
+  포트원의 강점: 멀티 PG 라우팅 (KCP·KSNET·다날·카카오페이·네이버페이·토스 한 번에 통합)
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>결제 — {{COMPANY_BRAND}}</title>
+<script src="https://cdn.portone.io/v2/browser-sdk.js"></script>
+</head>
+<body>
+  <button id="pay-card">신용카드</button>
+  <button id="pay-kakaopay">카카오페이</button>
+  <button id="pay-naverpay">네이버페이</button>
+
+<script>
+// 포트원 콘솔에서 발급받은 정보
+const STORE_ID = 'store-REPLACE_WITH_YOUR_STORE_ID';
+const CHANNEL_KEY_KCP = 'channel-key-REPLACE_WITH_KCP_CHANNEL';
+const CHANNEL_KEY_KAKAO = 'channel-key-REPLACE_WITH_KAKAO_CHANNEL';
+const CHANNEL_KEY_NAVER = 'channel-key-REPLACE_WITH_NAVER_CHANNEL';
+
+async function pay(channelKey, payMethod) {
+  const response = await PortOne.requestPayment({
+    storeId: STORE_ID,
+    channelKey: channelKey,
+    paymentId: 'order-' + Date.now(),
+    orderName: '{{COMPANY_BRAND}} 강의',
+    totalAmount: 50000,
+    currency: 'CURRENCY_KRW',
+    payMethod: payMethod,  // 'CARD', 'EASY_PAY', etc.
+    customer: {
+      fullName: '구매자명',
+      email: 'customer@example.com',
+    },
+    redirectUrl: 'https://{{DOMAIN}}/payment/success',
+  });
+
+  if (response.code !== undefined) {
+    // 결제 실패
+    alert('결제 실패: ' + response.message);
+    return;
+  }
+
+  // 결제 성공 — 백엔드에 paymentId 전달
+  const verify = await fetch('/api/payment/verify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ paymentId: response.paymentId }),
+  });
+
+  if (verify.ok) {
+    alert('결제 완료!');
+    window.location.href = '/payment/success';
+  } else {
+    alert('결제 검증 실패. 고객센터 문의.');
+  }
+}
+
+document.getElementById('pay-card').onclick = () => pay(CHANNEL_KEY_KCP, 'CARD');
+document.getElementById('pay-kakaopay').onclick = () => pay(CHANNEL_KEY_KAKAO, 'EASY_PAY');
+document.getElementById('pay-naverpay').onclick = () => pay(CHANNEL_KEY_NAVER, 'EASY_PAY');
+</script>
+
+<!--
+  ⚠️ 백엔드 (예: Node.js) 결제 검증 예시:
+
+  POST /api/payment/verify
+  ─────────────────────────
+  const { paymentId } = req.body;
+
+  // 1. 포트원 API로 결제 정보 조회
+  const r = await fetch(`https://api.portone.io/payments/${paymentId}`, {
+    headers: { Authorization: `PortOne {V2_API_SECRET}` },
+  });
+  const payment = await r.json();
+
+  // 2. 금액 검증
+  if (payment.amount.total !== EXPECTED_AMOUNT) {
+    return res.status(400).json({ error: '금액 위변조 의심' });
+  }
+
+  // 3. 상태 확인
+  if (payment.status !== 'PAID') {
+    return res.status(400).json({ error: '결제 미완료' });
+  }
+
+  // 4. 본인 DB에 저장
+  await db.orders.create({ paymentId, amount: payment.amount.total, ... });
+
+  res.json({ success: true });
+
+  공식: https://developers.portone.io/docs/ko/v2/integration/payment-result
+-->
+</body>
+</html>

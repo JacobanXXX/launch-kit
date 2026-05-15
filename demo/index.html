@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Kit — Live Demo</title>
+<meta name="description" content="12 things to ship a Korean SaaS — interactive demos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root {
+    --bg: #0f0f11;
+    --surface: #18181b;
+    --border: rgba(255,255,255,0.08);
+    --text: #ebebee;
+    --text-soft: #a0a0a8;
+    --text-faint: #6e6e76;
+    --accent: #5e9eff;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+  .eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-size: clamp(48px, 8vw, 84px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+  }
+  h1 em {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .subtitle {
+    font-size: 19px;
+    color: var(--text-soft);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 12px 22px; border-radius: 999px;
+    font-family: "Inter", sans-serif; font-size: 14px; font-weight: 500;
+    text-decoration: none; transition: all 0.3s var(--ease);
+  }
+  .btn-primary { background: white; color: var(--bg); }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-secondary:hover { background: var(--surface); }
+
+  /* Section */
+  section {
+    border-bottom: 1px solid var(--border);
+    padding: 64px 0;
+  }
+  section h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  section .desc {
+    color: var(--text-soft);
+    margin-bottom: 32px;
+  }
+
+  /* Demo card */
+  .demo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .demo-card-header {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-faint);
+  }
+  .demo-card-body { padding: 24px; }
+  .demo-card-body iframe {
+    width: 100%; height: 400px;
+    border: 0; border-radius: 8px;
+    background: white;
+  }
+
+  /* Code block */
+  pre {
+    background: #08080a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    overflow-x: auto;
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #d0d0d8;
+  }
+  code { font-family: inherit; }
+
+  /* Component grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .feature:hover { border-color: var(--accent); }
+  .feature-emoji { font-size: 28px; margin-bottom: 12px; }
+  .feature-title { font-weight: 600; margin-bottom: 6px; font-size: 16px; }
+  .feature-desc { color: var(--text-soft); font-size: 14px; }
+
+  /* Footer */
+  footer {
+    padding: 64px 0 80px;
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 13px;
+  }
+  footer a { color: var(--text-soft); text-decoration: none; margin: 0 8px; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 600px) {
+    .demo-card-body iframe { height: 480px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="eyebrow">Launch Kit · Live Demo</div>
+    <h1>Ship a SaaS in <em>30 minutes.</em></h1>
+    <p class="subtitle">12개의 검증된 코드 + 한국 PIPA·전자상거래법 호환 약관. 인터랙티브 미리보기.</p>
+    <div class="cta-row">
+      <a href="https://github.com/JacobanXXX/launch-kit" class="btn btn-primary">
+        ⭐ Star on GitHub
+      </a>
+      <a href="#quick-start" class="btn btn-secondary">
+        Quick Start →
+      </a>
+    </div>
+  </div>
+</header>
+
+<section id="quick-start">
+  <div class="container">
+    <h2>🚀 Quick Start</h2>
+    <p class="desc">한 줄로 본인 프로젝트 생성. 인터랙티브 prompt가 한국 PIPA 약관·SEO·analytics 모두 자동 셋업.</p>
+    <pre><code>npx launch-kit init</code></pre>
+    <p style="margin-top:16px; color: var(--text-faint); font-size: 14px;">
+      → 회사명, 도메인, PG, Clarity ID 등 입력 → 모든 파일 자동 생성. 5분 소요.
+    </p>
+  </div>
+</section>
+
+<section id="components">
+  <div class="container">
+    <h2>🎨 Components</h2>
+    <p class="desc">모든 컴포넌트는 별도 의존성 없이 vanilla HTML/CSS/JS. 본인 프로젝트에 그대로 복사.</p>
+
+    <div class="demo-card">
+      <div class="demo-card-header">
+        <span>📱 Mobile Hamburger Menu</span>
+        <a href="https://github.com/JacobanXXX/launch-kit/blob/main/components/mobile-hamburger.html" style="color: var(--accent); text-decoration: none;">View source →</a>
+      </div>
+      <div class="demo-card-body">
+        <iframe src="https://raw.githack.com/JacobanXXX/launch-kit/main/components/mobile-hamburger.html" loading="lazy" title="Mobile hamburger demo"></iframe>
+      </div>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-card-header">
+        <span>💀 404 Page</span>
+        <a href="https://github.com/JacobanXXX/launch-kit/blob/main/components/404.html" style="color: var(--accent); text-decoration: none;">View source →</a>
+      </div>
+      <div class="demo-card-body">
+        <iframe src="https://raw.githack.com/JacobanXXX/launch-kit/main/components/404.html" loading="lazy" title="404 demo"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="legal">
+  <div class="container">
+    <h2>🏛️ Legal Templates (한국 SaaS 필수)</h2>
+    <p class="desc">변호사 견적 50만원 → 변수 치환 10분으로. PIPA·전자상거래법·콘텐츠산업진흥법 호환.</p>
+
+    <div class="grid">
+      <div class="feature">
+        <div class="feature-emoji">🔒</div>
+        <div class="feature-title">개인정보처리방침</div>
+        <div class="feature-desc">개인정보보호법 30조 12개 섹션. Microsoft Clarity 위탁 자동 명시.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-emoji">📜</div>
+        <div class="feature-title">이용약관</div>
+        <div class="feature-desc">전자상거래법 14개 조항. PG별 보강 조항 별도.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-emoji">💰</div>
+        <div class="feature-title">환불 정책</div>
+        <div class="feature-desc">전자상거래법 17조. 디지털 콘텐츠 청약철회 7일 + 시청 진도별 부분환불.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="payment">
+  <div class="container">
+    <h2>💳 Korean PG Integrations</h2>
+    <p class="desc">한국 SaaS에서 결제 받을 때 매번 막히는 부분. 약관 + 검증된 코드 한 곳에.</p>
+
+    <div class="grid">
+      <div class="feature">
+        <div class="feature-emoji">🟦</div>
+        <div class="feature-title">토스페이먼츠</div>
+        <div class="feature-desc">Payment Widget 통합 + 백엔드 검증 패턴 + 약관 추가본.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-emoji">🟪</div>
+        <div class="feature-title">포트원 (구 아임포트)</div>
+        <div class="feature-desc">멀티 PG 라우팅 (KCP/KSNET/카카오/네이버) + V2 SDK 코드.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-emoji">🟧</div>
+        <div class="feature-title">KG 이니시스</div>
+        <div class="feature-desc">Standard 결제창 + signature 생성 코드 + B2B 추천.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="seo-analytics">
+  <div class="container">
+    <h2>🔍 SEO + Analytics</h2>
+    <p class="desc">출시했는데 구글에 안 나오고 누가 방문하는지도 모르는 문제 — 한 번에 해결.</p>
+
+    <div class="grid">
+      <div class="feature">
+        <div class="feature-emoji">🗺️</div>
+        <div class="feature-title">sitemap.xml + robots.txt</div>
+        <div class="feature-desc">Google Search Console 즉시 등록 가능.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-emoji">🏷️</div>
+        <div class="feature-title">JSON-LD Organization</div>
+        <div class="feature-desc">검색 결과에 회사 로고 + 정보 자동 표시.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-emoji">📊</div>
+        <div class="feature-title">Microsoft Clarity</div>
+        <div class="feature-desc">무료·무제한 히트맵 + 세션 녹화. PIPA disclosure 자동 포함.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Made by <a href="https://verbiolabs.com">Jacob (안준영)</a> · MIT License</p>
+    <p style="margin-top:16px;">
+      <a href="https://github.com/JacobanXXX/launch-kit">GitHub</a> ·
+      <a href="https://github.com/JacobanXXX/launch-kit/issues">Issues</a> ·
+      <a href="https://verbiolabs.com">verbiolabs.com</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>

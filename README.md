@@ -115,29 +115,39 @@ launch-kit/
 | 📊  **Analytics** | `clarity.html` | Microsoft Clarity 스니펫 (무료, 무제한, 히트맵 + 세션 녹화) |
 | 🎨  **Components** | `mobile-hamburger.html` `404.html` `app-store-badge.html` `a11y.css` `og-image-generator.py` | 즉시 쓸 수 있는 UI 코드 |
 | 🤖  **AI Workflow** | `claude.md` | Universal `claude.md` 템플릿 (Claude Code · Cursor · Aider 호환) |
+| 💳  **Korean PG** | `legal/pg/*.md` `components/payment/*.html` | 토스페이먼츠·포트원·이니시스 약관 + 결제 코드 |
+| ⚡  **CLI** | `cli/index.js` | `npx launch-kit init` 으로 본인 프로젝트 자동 생성 (0 deps) |
 
 ---
 
 ## 🚀 Quick Start
 
-```bash
-# 1. Clone the repo
-git clone https://github.com/JacobanXXX/launch-kit.git
+**한 줄로 본인 프로젝트 자동 생성** (강력 추천):
 
-# 2. Copy what you need into your project
+```bash
+npx launch-kit init
+```
+
+→ 인터랙티브 prompt가 회사명·도메인·PG·Clarity ID 등 묻고, 모든 파일을 변수 치환해서 자동 생성. 5분이면 끝.
+
+<details>
+<summary><b>또는 수동 복사 (CLI 안 쓰고)</b></summary>
+
+```bash
+git clone https://github.com/JacobanXXX/launch-kit.git
 cp -r launch-kit/legal ./your-project/
 cp -r launch-kit/components ./your-project/
 cp launch-kit/claude.md ./your-project/
-
-# 3. Customize legal templates with your business info
-#    See legal/README.md for variable list
+# 그 후 legal/README.md 따라 변수 치환
 ```
 
-또는 가장 자주 까먹는 모바일 햄버거 메뉴만 빠르게:
+또는 가장 자주 까먹는 모바일 햄버거 메뉴만:
 
 ```bash
 curl -O https://raw.githubusercontent.com/JacobanXXX/launch-kit/main/components/mobile-hamburger.html
 ```
+
+</details>
 
 ---
 

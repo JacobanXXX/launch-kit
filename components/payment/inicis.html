@@ -1,0 +1,102 @@
+<!--
+  KG 이니시스 — Standard 결제창 통합 예시
+  공식 문서: https://manual.inicis.com/stdpay/
+
+  특징: 별도 결제창이 팝업으로 뜸 (form submit 방식, 가장 검증된 PG)
+  추천 환경: 보수적 기업·관공서·교육기관 매출
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>결제 — {{COMPANY_BRAND}}</title>
+<script type="text/javascript" src="https://stdpay.inicis.com/stdjs/INIStdPay.js" charset="UTF-8"></script>
+</head>
+<body>
+  <form id="SendPayForm" method="POST">
+    <!-- 필수 파라미터 -->
+    <input type="hidden" name="version" value="1.0">
+    <input type="hidden" name="mid" value="INIpayTest">          <!-- 가맹점 ID (이니시스 발급) -->
+    <input type="hidden" name="oid" value="">                    <!-- 주문번호 (자동 생성) -->
+    <input type="hidden" name="price" value="50000">             <!-- 금액 -->
+    <input type="hidden" name="goodname" value="{{COMPANY_BRAND}} 강의">
+    <input type="hidden" name="buyername" value="구매자명">
+    <input type="hidden" name="buyertel" value="010-0000-0000">
+    <input type="hidden" name="buyeremail" value="customer@example.com">
+    <input type="hidden" name="returnUrl" value="https://{{DOMAIN}}/payment/return">  <!-- PC 결제 후 -->
+    <input type="hidden" name="closeUrl" value="https://{{DOMAIN}}/payment/close">    <!-- 사용자 닫기 -->
+    <input type="hidden" name="acceptmethod" value="HPP(1):below1000:centerCd(Y)">
+    <input type="hidden" name="currency" value="WON">
+    <input type="hidden" name="gopaymethod" value="Card:DirectBank:VBank">           <!-- 카드/계좌이체/가상계좌 -->
+
+    <!-- 위변조 방지 — 백엔드에서 SHA-256 hash 생성 후 주입 -->
+    <input type="hidden" name="signature" value="">
+    <input type="hidden" name="verification" value="">
+    <input type="hidden" name="mKey" value="">                   <!-- 가맹점 key (서버에서 SHA-256) -->
+    <input type="hidden" name="timestamp" value="">
+
+    <button type="button" onclick="initPayment()">결제하기</button>
+  </form>
+
+<script>
+async function initPayment() {
+  // 1. 백엔드에서 oid + signature 생성 받기
+  const r = await fetch('/api/payment/inicis/prepare', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ price: 50000, goodname: '{{COMPANY_BRAND}} 강의' }),
+  });
+  const { oid, signature, verification, mKey, timestamp } = await r.json();
+
+  // 2. form에 주입
+  const f = document.getElementById('SendPayForm');
+  f.oid.value = oid;
+  f.signature.value = signature;
+  f.verification.value = verification;
+  f.mKey.value = mKey;
+  f.timestamp.value = timestamp;
+
+  // 3. 이니시스 표준 결제창 호출
+  INIStdPay.pay('SendPayForm');
+}
+</script>
+
+<!--
+  ⚠️ 백엔드 처리 (Node.js 예시):
+
+  POST /api/payment/inicis/prepare
+  ──────────────────────────────────
+  const crypto = require('crypto');
+  const SIGN_KEY = 'YOUR_INICIS_SIGN_KEY';  // 이니시스가 발급한 signKey
+
+  const oid = `ORD${Date.now()}`;
+  const timestamp = Date.now();
+  const price = 50000;
+
+  // signature: SHA-256(oid + price + timestamp)
+  const signature = crypto.createHash('sha256')
+    .update(`oid=${oid}&price=${price}&timestamp=${timestamp}`)
+    .digest('hex');
+
+  // verification: SHA-256(oid + price + signKey + timestamp)
+  const verification = crypto.createHash('sha256')
+    .update(`oid=${oid}&price=${price}&signKey=${SIGN_KEY}&timestamp=${timestamp}`)
+    .digest('hex');
+
+  // mKey: SHA-256(signKey)
+  const mKey = crypto.createHash('sha256').update(SIGN_KEY).digest('hex');
+
+  res.json({ oid, signature, verification, mKey, timestamp });
+
+
+  POST /api/payment/inicis/return  ← 결제 후 redirect 받는 endpoint
+  ────────────────────────────────────
+  // 이니시스는 form POST로 결과 보냄
+  // resultCode === '0000' 이면 성공
+  // 그 후 승인 API 호출 → 실제 결제 확정 (NetCancel 패턴)
+
+  공식 매뉴얼: https://manual.inicis.com/stdpay/process.html
+-->
+</body>
+</html>

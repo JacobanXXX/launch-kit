@@ -1,0 +1,54 @@
+{
+  "name": "launch-kit",
+  "version": "1.0.0",
+  "description": "12 things to ship a Korean SaaS — copy-paste templates with PIPA·전자상거래법 호환 약관, 모바일 햄버거, SEO, Analytics, App Store badges. CLI 한 번으로 본인 프로젝트 자동 생성.",
+  "bin": {
+    "launch-kit": "./cli/index.js"
+  },
+  "main": "./cli/index.js",
+  "scripts": {
+    "start": "node cli/index.js init",
+    "test": "node cli/index.js init test-output && rm -rf test-output && echo 'CLI smoke test passed'"
+  },
+  "files": [
+    "cli/",
+    "legal/",
+    "seo/",
+    "analytics/",
+    "components/",
+    "claude.md",
+    "checklist.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "saas",
+    "boilerplate",
+    "template",
+    "claude-code",
+    "vibe-coding",
+    "korean-saas",
+    "pipa",
+    "ecommerce-law",
+    "privacy-policy",
+    "terms-of-service",
+    "indie-hackers",
+    "launch-checklist",
+    "tosspayments",
+    "portone",
+    "inicis"
+  ],
+  "author": "Jacob (안준영) <hello@verbiolabs.com> (https://verbiolabs.com)",
+  "license": "MIT",
+  "homepage": "https://github.com/JacobanXXX/launch-kit#readme",
+  "bugs": {
+    "url": "https://github.com/JacobanXXX/launch-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobanXXX/launch-kit.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
